@@ -17,6 +17,11 @@ class Message < ApplicationRecord
       puts(result)
       self.intent = result[:body][:topScoringIntent][:intent]
 
+      if (self.conversation.messages.count == 0)
+        WhatsappService.new.send_message(conversation.user.contact_id, self.text)
+        return
+      end
+
       if (self.conversation.messages.last(2)[0]&.intent == 'ReportIssue')
         print('Gravado com sucesso!')
         self.conversation.update(:status => 'inactive')
