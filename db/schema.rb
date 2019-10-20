@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2019_10_20_043457) do
 
   create_table "conversations", force: :cascade do |t|
     t.bigint "user_id", null: false
+    t.integer "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_conversations_on_user_id"
@@ -25,7 +26,8 @@ ActiveRecord::Schema.define(version: 2019_10_20_043457) do
   create_table "messages", force: :cascade do |t|
     t.bigint "conversation_id", null: false
     t.text "text"
-    t.text "response"
+    t.boolean "from_me"
+    t.string "intent"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"

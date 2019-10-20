@@ -1,0 +1,8 @@
+:concurrency: 5
+:queues:
+  - mailers
+  - default
+:schedule:
+  expired:
+    cron: '0 8 * * * *'
+    class: ExpiredWorker
