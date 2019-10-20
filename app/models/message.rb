@@ -18,7 +18,8 @@ class Message < ApplicationRecord
       self.intent = result[:body][:topScoringIntent][:intent]
 
       if (self.conversation.messages.count == 0)
-        WhatsappService.new.send_message(conversation.user.contact_id, self.text)
+        print('Manda primeira mensagem')
+        ResponseWorker.perform_in(2.seconds, self.conversation.id, first_message)
         return
       end
 
