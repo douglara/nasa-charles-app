@@ -23,7 +23,7 @@ class Message < ApplicationRecord
       if (self.conversation.messages.last&.intent == 'SigninAlert')
         print('Cadastrado regiao com sucesso!')
         self.conversation.update(:status => 'inactive')
-        ResponseWorker.perform_in(2.seconds, (self.conversation.id, "Alerta gravado com sucesso!")
+        ResponseWorker.perform_in(2.seconds, self.conversation.id, "Alerta gravado com sucesso!")
         return
       end
 
