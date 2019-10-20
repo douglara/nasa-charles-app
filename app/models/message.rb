@@ -17,14 +17,14 @@ class Message < ApplicationRecord
       puts(result)
       self.intent = result[:body][:topScoringIntent][:intent]
 
-      if (self.conversation.messages.last(2)&.intent == 'ReportIssue')
+      if (self.conversation.messages.last(2)[0]&.intent == 'ReportIssue')
         print('Gravado com sucesso!')
         self.conversation.update(:status => 'inactive')
         ResponseWorker.perform_in(2.seconds, self.conversation.id, "Incidente gravado com sucesso!")
         return
       end
 
-      if (self.conversation.messages.last(2)&.intent == 'SigninAlert')
+      if (self.conversation.messages.last(2)[0]&.intent == 'SigninAlert')
         print('Cadastrado regiao com sucesso!')
         self.conversation.update(:status => 'inactive')
         ResponseWorker.perform_in(2.seconds, self.conversation.id, "Alerta gravado com sucesso!")
