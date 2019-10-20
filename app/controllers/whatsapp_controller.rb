@@ -5,7 +5,7 @@ class WhatsappController < ApplicationController
     if (params["data"]["isFromMe"] == false  and params["event"] == "message.created" and  params["data"]["text"] )
       user = User.find_or_create_by(contact_id: params["data"]["contactId"])
       messages = user.messages.where(created_at: 1.minutes.ago..DateTime.now)
-      if (!messages.last&.conversation&.status == 'active')
+      if (messages.last&.conversation&.status != 'active')
         conversation = Conversation.create(user: user)
       else
         conversation = Conversation.where(user: user).last()
