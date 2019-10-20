@@ -7,7 +7,7 @@ class Message < ApplicationRecord
 
   def response
 
-    first_message = "Oi. Eu sou o Charles!\n\nMinha missão é ajudar você e sua família a viverem em segurança e o que fazer numa situação de emergência!\n\nVocê pode cadastrar regiões para receber alertas de situações de risco, basta digitar 'Alerta'\n Ou para informar uma situação de risco digite 'Informar'"
+    first_message = "Oi. Eu sou o Charles!\n\nMinha missão é ajudar você e sua família a viverem em segurança e o que fazer numa situação de emergência!😉✅\n\nVocê pode cadastrar regiões para receber alertas de situações de risco, basta digitar 'Alerta'\n\nOu para informar uma situação de risco digite 'Informar'"
     bairro = "Por favor envie o bairro"
 
 
