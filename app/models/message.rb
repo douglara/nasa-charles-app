@@ -3,10 +3,14 @@ class Message < ApplicationRecord
 
   before_create :response
   
-  first_message = "Oi. Eu sou o Charles!\n\nMinha missão é ajudar você e sua família a viverem em segurança e o que fazer numa situação de emergência!\n\nVocê pode cadastrar regiões para receber alertas de situações de risco, basta digitar 'Alerta'\n Ou para informar uma situação de risco digite 'Informar'"
-  bairro = "Por favor envie o bairro"
+
 
   def response
+
+    first_message = "Oi. Eu sou o Charles!\n\nMinha missão é ajudar você e sua família a viverem em segurança e o que fazer numa situação de emergência!\n\nVocê pode cadastrar regiões para receber alertas de situações de risco, basta digitar 'Alerta'\n Ou para informar uma situação de risco digite 'Informar'"
+    bairro = "Por favor envie o bairro"
+
+    
     if (!self.from_me)
       puts("Faz o request para o Luis")
       result = LuisService.new.q(self.text)
