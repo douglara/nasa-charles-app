@@ -6,5 +6,6 @@ class ChangeFieldsInMessages < ActiveRecord::Migration[6.0]
     add_column :messages, :user_phone, :string
     add_column :messages, :user_id, :string
     add_column :messages, :message_id, :string
+    add_column :messages, :sync, :boolean, :default => false
   end
 end

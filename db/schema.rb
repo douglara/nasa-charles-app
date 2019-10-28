@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2019_10_28_214211) do
     t.string "user_phone"
     t.string "user_id"
     t.string "message_id"
+    t.boolean "sync", default: false
   end
 
 end
