@@ -3,14 +3,11 @@ class WhatsappController < ApplicationController
 
   def webhook
     if (params["data"]["isFromMe"] == false  and params["event"] == "message.created" and  params["data"]["text"] )
-      user = User.find_or_create_by(contact_id: params["data"]["contactId"])
-      messages = user.messages.where(created_at: 1.minutes.ago..DateTime.now)
-      if (messages.count() == 0)
-        conversation = Conversation.create(user: user)
-      else
-        conversation = Conversation.where(user: user).last()
+      Message.find_or_create_by(message_id:params["data"]["id"]) do | message |
+        message.user_id = params["data"]["fromId"]
+        message.text = params["data"]["text"]
+        message.from_me = false 
       end
-      message = Message.create(conversation: conversation, from_me: false, text: params["data"]["text"])
     end
   end
 end
