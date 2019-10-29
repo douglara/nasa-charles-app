@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://directline.botframework.com/v3/directline/conversations
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Authorization:
+      - Bearer conversation_valid_token
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '1936'
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      Server:
+      - Microsoft-IIS/10.0
+      X-Ms-Request-Id:
+      - "|06a151e41386ac48ac5c1e09e507c2aa.ff827d3f_"
+      Strict-Transport-Security:
+      - max-age=31536000
+      Date:
+      - Tue, 29 Oct 2019 01:46:53 GMT
+    body:
+      encoding: UTF-8
+      string: "{\r\n  \"conversationId\": \"valid_conversation\",\r\n  \"token\":
+        \"conversation_valid_token\",\r\n
+        \ \"expires_in\": 3600,\r\n  \"streamUrl\": \"wss://directline.botframework.com/v3/directline/conversations/valid_conversation/stream?watermark=-&t=conversation_valid_token\",\r\n
+        \ \"referenceGrammarId\": \"3ae54227-348e-6e54-ad8d-377525dfdca5\"\r\n}"
+    http_version: 
+  recorded_at: Tue, 29 Oct 2019 01:46:53 GMT
+recorded_with: VCR 5.0.0

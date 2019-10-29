@@ -1,0 +1,39 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://directline.botframework.com/v3/directline/conversations
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Authorization:
+      - Bearer failure
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '93'
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000
+      Date:
+      - Tue, 29 Oct 2019 01:51:53 GMT
+    body:
+      encoding: UTF-8
+      string: "{\r\n  \"error\": {\r\n    \"code\": \"BadArgument\",\r\n    \"message\":
+        \"Invalid token or secret\"\r\n  }\r\n}"
+    http_version: 
+  recorded_at: Tue, 29 Oct 2019 01:51:54 GMT
+recorded_with: VCR 5.0.0

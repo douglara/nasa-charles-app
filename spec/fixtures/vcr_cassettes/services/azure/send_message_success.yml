@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://directline.botframework.com/v3/directline/conversations/valid_conversation/activities
+    body:
+      encoding: UTF-8
+      string: '{"type":"message","from":{"id":"user1"},"text":"Test"}'
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Authorization:
+      - Bearer conversation_valid_token
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '48'
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      Server:
+      - Microsoft-IIS/10.0
+      X-Ms-Request-Id:
+      - "|1a662e67579d2a45817c53a2857b57ad.f7f97df4_"
+      Strict-Transport-Security:
+      - max-age=31536000
+      Date:
+      - Tue, 29 Oct 2019 02:07:15 GMT
+    body:
+      encoding: UTF-8
+      string: "{\r\n  \"id\": \"valid_conversation|0000004\"\r\n}"
+    http_version: 
+  recorded_at: Tue, 29 Oct 2019 02:07:15 GMT
+recorded_with: VCR 5.0.0
