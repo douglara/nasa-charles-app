@@ -71,5 +71,35 @@ RSpec.describe AzureService do
     end
   end
 
+  describe '#get_response' do
+    it 'success' do 
+      VCR.use_cassette("services/azure/get_response_success") do
+        result = azure_service.get_response("valid_token", "valid_conversation", "valid_conversation|0000000")
+        expect(result[:result]).to be true
+      end    
+    end
 
+    it 'failure' do 
+      VCR.use_cassette("services/azure/get_response_failure") do
+        result = azure_service.get_response("invalid_token", "invalid_conversation", "invalid_message")
+        expect(result[:result]).to be false
+      end   
+    end
+  end
+
+
+  describe '#sync_message' do
+    context "from_user" do
+      it 'success' do 
+        message = create(:message)
+        VCR.use_cassette("services/azure/sync_message_success") do
+          result = azure_service.sync_message(message)
+          expect(result[:result]).to be true
+        end    
+      end
+    end
+    context "from_me" do
+      
+    end
+  end
 end

@@ -1,0 +1,269 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://directline.botframework.com/v3/directline/tokens/generate
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Authorization:
+      - Bearer <AZURE_TOKEN>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '917'
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      Server:
+      - Microsoft-IIS/10.0
+      X-Ms-Request-Id:
+      - "|d2c137113fd8d74f95a6e2fbfcb6ea04.6d39477_"
+      Strict-Transport-Security:
+      - max-age=31536000
+      Date:
+      - Tue, 29 Oct 2019 03:27:30 GMT
+    body:
+      encoding: UTF-8
+      string: "{\r\n  \"conversationId\": \"conversation_id\",\r\n  \"token\":
+        \"valid_token\",\r\n
+        \ \"expires_in\": 3600\r\n}"
+    http_version: 
+  recorded_at: Tue, 29 Oct 2019 03:27:30 GMT
+- request:
+    method: post
+    uri: https://directline.botframework.com/v3/directline/conversations
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Authorization:
+      - Bearer valid_token
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '1936'
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      Server:
+      - Microsoft-IIS/10.0
+      X-Ms-Request-Id:
+      - "|4e7dcbd2cbe3214482d467bd52546a39.9b5c1494_"
+      Strict-Transport-Security:
+      - max-age=31536000
+      Date:
+      - Tue, 29 Oct 2019 03:27:30 GMT
+    body:
+      encoding: UTF-8
+      string: "{\r\n  \"conversationId\": \"conversation_id\",\r\n  \"token\":
+        \"valid_token\",\r\n
+        \ \"expires_in\": 3600,\r\n  \"streamUrl\": \"wss://directline.botframework.com/v3/directline/conversations/conversation_id/stream?watermark=-&t=valid_token\",\r\n
+        \ \"referenceGrammarId\": \"3ae54227-348e-6e54-ad8d-377525dfdca5\"\r\n}"
+    http_version: 
+  recorded_at: Tue, 29 Oct 2019 03:27:30 GMT
+- request:
+    method: post
+    uri: https://directline.botframework.com/v3/directline/conversations/conversation_id/activities
+    body:
+      encoding: UTF-8
+      string: '{"type":"message","from":{"id":"049-04-2258"},"text":"Already know
+        you that which you need."}'
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Authorization:
+      - Bearer valid_token
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '48'
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      Server:
+      - Microsoft-IIS/10.0
+      X-Ms-Request-Id:
+      - "|10d76917769a80479600b38b276af484.8fdf7b57_"
+      Strict-Transport-Security:
+      - max-age=31536000
+      Date:
+      - Tue, 29 Oct 2019 03:27:31 GMT
+    body:
+      encoding: UTF-8
+      string: "{\r\n  \"id\": \"conversation_id|0000000\"\r\n}"
+    http_version: 
+  recorded_at: Tue, 29 Oct 2019 03:27:31 GMT
+- request:
+    method: get
+    uri: https://directline.botframework.com/v3/directline/conversations/conversation_id/activities?replyToIdconversation_id%7C0000000
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Authorization:
+      - Bearer valid_token
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '473'
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      Server:
+      - Microsoft-IIS/10.0
+      X-Ms-Request-Id:
+      - "|0fa41988c7cff24a876e1237daed10fe.6d39501_"
+      Strict-Transport-Security:
+      - max-age=31536000
+      Date:
+      - Tue, 29 Oct 2019 03:27:31 GMT
+    body:
+      encoding: UTF-8
+      string: "{\r\n  \"activities\": [\r\n    {\r\n      \"type\": \"message\",\r\n
+        \     \"id\": \"conversation_id|0000000\",\r\n      \"timestamp\":
+        \"2019-10-29T03:27:31.1146662Z\",\r\n      \"serviceUrl\": \"https://directline.botframework.com/\",\r\n
+        \     \"channelId\": \"directline\",\r\n      \"from\": {\r\n        \"id\":
+        \"049-04-2258\"\r\n      },\r\n      \"conversation\": {\r\n        \"id\":
+        \"conversation_id\"\r\n      },\r\n      \"text\": \"Already know
+        you that which you need.\"\r\n    }\r\n  ],\r\n  \"watermark\": \"0\"\r\n}"
+    http_version: 
+  recorded_at: Tue, 29 Oct 2019 03:27:32 GMT
+- request:
+    method: get
+    uri: https://directline.botframework.com/v3/directline/conversations/conversation_id/activities?replyToIdconversation_id%7C0000000
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Authorization:
+      - Bearer valid_token
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '473'
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      Server:
+      - Microsoft-IIS/10.0
+      X-Ms-Request-Id:
+      - "|86ce8cf3396b834aa1851c37fd1225da.2ea16a00_"
+      Strict-Transport-Security:
+      - max-age=31536000
+      Date:
+      - Tue, 29 Oct 2019 03:27:31 GMT
+    body:
+      encoding: UTF-8
+      string: "{\r\n  \"activities\": [\r\n    {\r\n      \"type\": \"message\",\r\n
+        \     \"id\": \"conversation_id|0000000\",\r\n      \"timestamp\":
+        \"2019-10-29T03:27:31.1146662Z\",\r\n      \"serviceUrl\": \"https://directline.botframework.com/\",\r\n
+        \     \"channelId\": \"directline\",\r\n      \"from\": {\r\n        \"id\":
+        \"049-04-2258\"\r\n      },\r\n      \"conversation\": {\r\n        \"id\":
+        \"conversation_id\"\r\n      },\r\n      \"text\": \"Already know
+        you that which you need.\"\r\n    }\r\n  ],\r\n  \"watermark\": \"0\"\r\n}"
+    http_version: 
+  recorded_at: Tue, 29 Oct 2019 03:27:32 GMT
+- request:
+    method: get
+    uri: https://directline.botframework.com/v3/directline/conversations/conversation_id/activities?replyToIdconversation_id%7C0000000
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Authorization:
+      - Bearer valid_token
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '1032'
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      Server:
+      - Microsoft-IIS/10.0
+      X-Ms-Request-Id:
+      - "|db72e9ca48e98b4f8780ca734026390a.f8001a50_"
+      Strict-Transport-Security:
+      - max-age=31536000
+      Date:
+      - Tue, 29 Oct 2019 03:27:32 GMT
+    body:
+      encoding: UTF-8
+      string: "{\r\n  \"activities\": [\r\n    {\r\n      \"type\": \"message\",\r\n
+        \     \"id\": \"conversation_id|0000000\",\r\n      \"timestamp\":
+        \"2019-10-29T03:27:31.1146662Z\",\r\n      \"serviceUrl\": \"https://directline.botframework.com/\",\r\n
+        \     \"channelId\": \"directline\",\r\n      \"from\": {\r\n        \"id\":
+        \"049-04-2258\"\r\n      },\r\n      \"conversation\": {\r\n        \"id\":
+        \"conversation_id\"\r\n      },\r\n      \"text\": \"Already know
+        you that which you need.\"\r\n    },\r\n    {\r\n      \"type\": \"message\",\r\n
+        \     \"id\": \"conversation_id|0000001\",\r\n      \"timestamp\":
+        \"2019-10-29T03:27:32.1757442Z\",\r\n      \"localTimestamp\": \"2019-10-29T03:27:31.954+00:00\",\r\n
+        \     \"channelId\": \"directline\",\r\n      \"from\": {\r\n        \"id\":
+        \"CharlesBotNasa\",\r\n        \"name\": \"CharlesBotNasa\"\r\n      },\r\n
+        \     \"conversation\": {\r\n        \"id\": \"conversation_id\"\r\n
+        \     },\r\n      \"text\": \"Oi! Para reportar algum incidente digite 1\",\r\n
+        \     \"inputHint\": \"expectingInput\",\r\n      \"replyToId\": \"conversation_id|0000000\"\r\n
+        \   }\r\n  ],\r\n  \"watermark\": \"1\"\r\n}"
+    http_version: 
+  recorded_at: Tue, 29 Oct 2019 03:27:32 GMT
+recorded_with: VCR 5.0.0
