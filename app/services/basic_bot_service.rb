@@ -54,10 +54,14 @@ class BasicBotService
   end
 
   def signup_subscription(user_phone, region, region_cep)
-    subscription = Subscription.find_or_create_by(user_phone: user_phone, region: user_phone) do | subscription |
+    subscription = Subscription.find_or_create_by(user_phone: user_phone, region: region) do | subscription |
       subscription.region_cep = region_cep
     end
-    return {result: true, subscription: subscription}
+    if subscription.save
+      return {result: true, subscription: subscription}
+    else
+      return {result: false, subscription: nil}
+    end
   end
 
   

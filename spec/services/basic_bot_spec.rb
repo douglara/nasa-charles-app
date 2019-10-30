@@ -61,6 +61,13 @@ RSpec.describe BasicBotService do
         expect(result[:result]).to be true and change { Subscription.count }.by(1)
       end
     end
+    it 'failure' do
+      VCR.use_cassette("services/basic_bot/signup_subscription_failure") do
+        message = create(:message_invalid_cep)
+        result = BasicBotService.new(message).signup_subscription(message.user_id, '' ,message.text )
+        expect(result[:result]).to be false and change { Subscription.count }.by(0)
+      end
+    end
   end
 
 end

@@ -6,6 +6,9 @@ FactoryBot.define do
     message_id { Faker::IDNumber.valid }
     factory :message_valid_cep do
       text { '81900500' }
-    end  
+    end
+    factory :message_invalid_cep do
+      text { '' }
+    end
   end
 end

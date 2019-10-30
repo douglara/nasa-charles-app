@@ -1,0 +1,168 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=1&key=<GOOGLE_MAPS_KEY>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 30 Oct 2019 22:28:11 GMT
+      Pragma:
+      - no-cache
+      Expires:
+      - Fri, 01 Jan 1990 00:00:00 GMT
+      Cache-Control:
+      - no-cache, must-revalidate
+      Vary:
+      - Accept-Language
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      Server-Timing:
+      - gfet4t7; dur=56
+      Alt-Svc:
+      - quic=":443"; ma=2592000; v="46,43",h3-Q048=":443"; ma=2592000,h3-Q046=":443";
+        ma=2592000,h3-Q043=":443"; ma=2592000
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+           "results" : [
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "4002",
+                       "short_name" : "4002",
+                       "types" : [ "street_number" ]
+                    },
+                    {
+                       "long_name" : "South Ross Lane",
+                       "short_name" : "S Ross Ln",
+                       "types" : [ "route" ]
+                    },
+                    {
+                       "long_name" : "Chanute",
+                       "short_name" : "Chanute",
+                       "types" : [ "locality", "political" ]
+                    },
+                    {
+                       "long_name" : "Neosho County",
+                       "short_name" : "Neosho County",
+                       "types" : [ "administrative_area_level_2", "political" ]
+                    },
+                    {
+                       "long_name" : "Kansas",
+                       "short_name" : "KS",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "United States",
+                       "short_name" : "US",
+                       "types" : [ "country", "political" ]
+                    },
+                    {
+                       "long_name" : "66720",
+                       "short_name" : "66720",
+                       "types" : [ "postal_code" ]
+                    }
+                 ],
+                 "formatted_address" : "4002 S Ross Ln, Chanute, KS 66720, USA",
+                 "geometry" : {
+                    "location" : {
+                       "lat" : 37.6430412,
+                       "lng" : -95.4604032
+                    },
+                    "location_type" : "ROOFTOP",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 37.6443901802915,
+                          "lng" : -95.45905421970849
+                       },
+                       "southwest" : {
+                          "lat" : 37.6416922197085,
+                          "lng" : -95.46175218029151
+                       }
+                    }
+                 },
+                 "place_id" : "ChIJw8Xx4F9DuIcRfEnkTXYLDys",
+                 "plus_code" : {
+                    "compound_code" : "JGVQ+6R Chanute, Tioga, KS, United States",
+                    "global_code" : "8696JGVQ+6R"
+                 },
+                 "types" : [
+                    "establishment",
+                    "furniture_store",
+                    "home_goods_store",
+                    "point_of_interest",
+                    "store"
+                 ]
+              }
+           ],
+           "status" : "OK"
+        }
+    http_version: 
+  recorded_at: Wed, 30 Oct 2019 22:28:11 GMT
+- request:
+    method: post
+    uri: "<WHATSAPP_API_ENDPOINT>/messages"
+    body:
+      encoding: UTF-8
+      string: "{\"to\":\"540-12-3342\",\"text\":\"Oi. Eu sou o Charles!\\n\\n\\nMinha
+        missão é ajudar você e sua família a viverem em segurança e saber o que fazer
+        numa situação de emergência!\U0001F609✅\\n\\n\\nEstou aprendendo a conversar
+        mas enquanto isso você pode cadastrar regiões para receber alertas de situações
+        de risco, basta digitar o CEP.\"}"
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <WHATSAPP_TOKEN>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - Express
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '2'
+      Etag:
+      - W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"
+      Date:
+      - Wed, 30 Oct 2019 22:28:12 GMT
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: "{}"
+    http_version: 
+  recorded_at: Wed, 30 Oct 2019 22:28:12 GMT
+recorded_with: VCR 5.0.0
