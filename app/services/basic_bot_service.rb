@@ -53,7 +53,11 @@ class BasicBotService
     return {result: false, region: region}
   end
 
-  def signup_notification
+  def signup_subscription(user_phone, region, region_cep)
+    subscription = Subscription.find_or_create_by(user_phone: user_phone, region: user_phone) do | subscription |
+      subscription.region_cep = region_cep
+    end
+    return {result: true, subscription: subscription}
   end
 
   

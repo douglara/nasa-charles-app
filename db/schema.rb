@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_28_214211) do
+ActiveRecord::Schema.define(version: 2019_10_30_220210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,14 @@ ActiveRecord::Schema.define(version: 2019_10_28_214211) do
     t.string "user_id"
     t.string "message_id"
     t.boolean "sync", default: false
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.string "user_phone", null: false
+    t.string "region", null: false
+    t.string "region_cep"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end

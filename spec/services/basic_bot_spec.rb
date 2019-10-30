@@ -42,16 +42,24 @@ RSpec.describe BasicBotService do
     it 'success' do 
       VCR.use_cassette("services/basic_bot/get_region_by_cep_success") do
         result = basic_bot.get_region_by_cep('81900500')
-        puts (result)
         expect(result[:result]).to be true
       end    
     end
     it 'invalid address' do 
       VCR.use_cassette("services/basic_bot/get_region_by_cep_invalid_address") do
         result = basic_bot.get_region_by_cep('1')
-        puts (result)
         expect(result[:result]).to be false
       end    
+    end
+  end
+
+  describe '#signup_subscription' do
+    it 'success' do
+      VCR.use_cassette("services/basic_bot/signup_subscription_success") do
+        message = create(:message_valid_cep)
+        result = BasicBotService.new(message).signup_subscription(message.user_id, 'Region' ,message.text )
+        expect(result[:result]).to be true and change { Subscription.count }.by(1)
+      end
     end
   end
 
