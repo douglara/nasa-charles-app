@@ -14,7 +14,7 @@ class WhatsappService
     }
 
     result = self.class.post('/messages', body: body.to_json, headers: headers)
-    json = JSON.parse(result.body) if result.body
+    #json = JSON.parse(result.body) if result.body
     return {:result => result.code == 200, :text => text}
   end
 end
