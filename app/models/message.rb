@@ -1,6 +1,9 @@
 class Message < ApplicationRecord
-  
-  before_create do
-    #self.name = login.capitalize if name.blank?
+
+  after_commit :sync, on: :create
+
+  def sync
+    BasicBotService.new(self).sync_message
   end
+
 end
