@@ -7,12 +7,12 @@ class BasicBotService
   def sync_message
     if (!@message.text.blank?)
       if (!@message.from_me)
-        if (@message.text.count("a-zA-Z") > 0)
+        if (@message.text.tr('^0-9', '').count("a-zA-Z") > 0)
           return return_default_message
         else
           # Checa CEP
           region = get_region_by_cep(@message.text)
-          if (region[:result] == true)
+          if (region[:result] == true and signup_subscription(@message.user_phone, region[:region], @message.text))
             response = "Alerta no bairro #{region[:region]} cadastrado com sucesso!"
             Message.create(from_me: true, text: response , user_id: @message.user_id)
             @message.update(sync: true)

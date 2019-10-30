@@ -22,8 +22,8 @@ RSpec.describe BasicBotService do
         VCR.use_cassette("services/basic_bot/sync_message_not_from_me_valid_cep") do
           basic_bot = BasicBotService.new(create(:message, text: '81900500'))
           result = basic_bot.sync_message
-          expect(result[:result]).to be true
-          expect(result[:response]).to  include("cadastrado")
+          expect(result[:result]).to be true and change { Subscription.count }.by(1)
+          expect(result[:response]).to include("cadastrado")
         end
       end 
     end
