@@ -34,5 +34,21 @@ RSpec.describe BasicBotService do
     end    
   end
 
+  describe '#get_region_by_cep' do
+    it 'success' do 
+      VCR.use_cassette("services/basic_bot/get_region_by_cep_success") do
+        result = basic_bot.get_region_by_cep('81900500')
+        puts (result)
+        expect(result[:result]).to be true
+      end    
+    end
+    it 'invalid address' do 
+      VCR.use_cassette("services/basic_bot/get_region_by_cep_invalid_address") do
+        result = basic_bot.get_region_by_cep('1')
+        puts (result)
+        expect(result[:result]).to be false
+      end    
+    end
+  end
 
 end

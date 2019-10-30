@@ -7,6 +7,7 @@ VCR.configure do |config|
   config.filter_sensitive_data('<AZURE_TOKEN>') { ENV['AZURE_TOKEN'] }
   config.filter_sensitive_data('<WHATSAPP_API_ENDPOINT>') { ENV['WHATSAPP_API_ENDPOINT'] }
   config.filter_sensitive_data('<WHATSAPP_TOKEN>') { ENV['WHATSAPP_TOKEN'] }
+  config.filter_sensitive_data('<GOOGLE_MAPS_KEY>') { ENV['GOOGLE_MAPS_KEY'] }
 end
 
 

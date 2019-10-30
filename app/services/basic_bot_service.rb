@@ -11,10 +11,15 @@ class BasicBotService
           return return_default_message
         else
           # Checa CEP
-          response = "Alerta cadastrado com sucesso!"
-          Message.create(from_me: true, text: response , user_id: @message.user_id)
-          @message.update(sync: true)
-          return {result: true, response: response }
+          region = get_region_by_cep(@message.text)
+          if (region[:result] == true)
+            response = "Alerta no bairro #{region[:region]} cadastrado com sucesso!"
+            Message.create(from_me: true, text: response , user_id: @message.user_id)
+            @message.update(sync: true)
+            return {result: true, response: response }
+          else
+            return return_default_message  
+          end
         end
       else
         whatsapp_result = WhatsappService.new.send_message(@message.user_id, @message.text)
@@ -32,7 +37,20 @@ class BasicBotService
     return {result: true, response: default_text}
   end
 
-  def check_cep
+  def get_region_by_cep(cep)
+    query = { 'address': cep, 'key': ENV['GOOGLE_MAPS_KEY'] }
+    result = HTTParty.get('https://maps.googleapis.com/maps/api/geocode/json', query: query)
+    body_result = JSON.parse(result.body,:symbolize_names => true)
+    region = ''
+    body_result[:results][0][:address_components].each do | address_component |
+      address_component[:types].each do | type |
+        if (type == 'sublocality')
+          region = address_component[:long_name]
+          return {result: true, region: region}
+        end
+      end
+    end
+    return {result: false, region: region}
   end
 
   def signup_notification

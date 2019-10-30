@@ -1,0 +1,97 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "<WHATSAPP_API_ENDPOINT>/messages"
+    body:
+      encoding: UTF-8
+      string: "{\"to\":\"662-43-5640\",\"text\":\"Oi. Eu sou o Charles!\\n\\n\\nMinha
+        missão é ajudar você e sua família a viverem em segurança e saber o que fazer
+        numa situação de emergência!\U0001F609✅\\n\\n\\nEstou aprendendo a conversar
+        mas enquanto isso você pode cadastrar regiões para receber alertas de situações
+        de risco, basta digitar o CEP.\"}"
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <WHATSAPP_TOKEN>
+  response:
+    status:
+      code: 503
+      message: Service Unavailable
+    headers:
+      Connection:
+      - keep-alive
+      Server:
+      - Cowboy
+      Date:
+      - Wed, 30 Oct 2019 13:07:08 GMT
+      Content-Length:
+      - '506'
+      Content-Type:
+      - text/html; charset=utf-8
+      Cache-Control:
+      - no-cache, no-store
+    body:
+      encoding: UTF-8
+      string: "<!DOCTYPE html>\n\t<html>\n\t  <head>\n\t\t<meta name=\"viewport\"
+        content=\"width=device-width, initial-scale=1\">\n\t\t<meta charset=\"utf-8\">\n\t\t<title>Application
+        Error</title>\n\t\t<style media=\"screen\">\n\t\t  html,body,iframe {\n\t\t\tmargin:
+        0;\n\t\t\tpadding: 0;\n\t\t  }\n\t\t  html,body {\n\t\t\theight: 100%;\n\t\t\toverflow:
+        hidden;\n\t\t  }\n\t\t  iframe {\n\t\t\twidth: 100%;\n\t\t\theight: 100%;\n\t\t\tborder:
+        0;\n\t\t  }\n\t\t</style>\n\t  </head>\n\t  <body>\n\t\t<iframe src=\"//www.herokucdn.com/error-pages/application-error.html\"></iframe>\n\t
+        \ </body>\n\t</html>"
+    http_version: 
+  recorded_at: Wed, 30 Oct 2019 13:07:09 GMT
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=81900500&key=<GOOGLE_MAPS_KEY>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 30 Oct 2019 13:07:10 GMT
+      Pragma:
+      - no-cache
+      Expires:
+      - Fri, 01 Jan 1990 00:00:00 GMT
+      Cache-Control:
+      - no-cache, must-revalidate
+      Vary:
+      - Accept-Language
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      X-Xss-Protection:
+      - '0'
+      X-Frame-Options:
+      - SAMEORIGIN
+      Server-Timing:
+      - gfet4t7; dur=440
+      Alt-Svc:
+      - quic=":443"; ma=2592000; v="46,43",h3-Q048=":443"; ma=2592000,h3-Q046=":443";
+        ma=2592000,h3-Q043=":443"; ma=2592000
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICAicmVzdWx0cyIgOiBbCiAgICAgIHsKICAgICAgICAgImFkZHJlc3NfY29tcG9uZW50cyIgOiBbCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgImxvbmdfbmFtZSIgOiAiODE5MDAtNTAwIiwKICAgICAgICAgICAgICAgInNob3J0X25hbWUiIDogIjgxOTAwLTUwMCIsCiAgICAgICAgICAgICAgICJ0eXBlcyIgOiBbICJwb3N0YWxfY29kZSIgXQogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICJsb25nX25hbWUiIDogIlPDrXRpbyBDZXJjYWRvIiwKICAgICAgICAgICAgICAgInNob3J0X25hbWUiIDogIlPDrXRpbyBDZXJjYWRvIiwKICAgICAgICAgICAgICAgInR5cGVzIiA6IFsgInBvbGl0aWNhbCIsICJzdWJsb2NhbGl0eSIsICJzdWJsb2NhbGl0eV9sZXZlbF8xIiBdCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgImxvbmdfbmFtZSIgOiAiQ3VyaXRpYmEiLAogICAgICAgICAgICAgICAic2hvcnRfbmFtZSIgOiAiQ3VyaXRpYmEiLAogICAgICAgICAgICAgICAidHlwZXMiIDogWyAiYWRtaW5pc3RyYXRpdmVfYXJlYV9sZXZlbF8yIiwgInBvbGl0aWNhbCIgXQogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICJsb25nX25hbWUiIDogIlN0YXRlIG9mIFBhcmFuw6EiLAogICAgICAgICAgICAgICAic2hvcnRfbmFtZSIgOiAiUFIiLAogICAgICAgICAgICAgICAidHlwZXMiIDogWyAiYWRtaW5pc3RyYXRpdmVfYXJlYV9sZXZlbF8xIiwgInBvbGl0aWNhbCIgXQogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICJsb25nX25hbWUiIDogIkJyYXppbCIsCiAgICAgICAgICAgICAgICJzaG9ydF9uYW1lIiA6ICJCUiIsCiAgICAgICAgICAgICAgICJ0eXBlcyIgOiBbICJjb3VudHJ5IiwgInBvbGl0aWNhbCIgXQogICAgICAgICAgICB9CiAgICAgICAgIF0sCiAgICAgICAgICJmb3JtYXR0ZWRfYWRkcmVzcyIgOiAiU8OtdGlvIENlcmNhZG8sIEN1cml0aWJhIC0gU3RhdGUgb2YgUGFyYW7DoSwgODE5MDAtNTAwLCBCcmF6aWwiLAogICAgICAgICAiZ2VvbWV0cnkiIDogewogICAgICAgICAgICAiYm91bmRzIiA6IHsKICAgICAgICAgICAgICAgIm5vcnRoZWFzdCIgOiB7CiAgICAgICAgICAgICAgICAgICJsYXQiIDogLTI1LjUzNzMwNzcsCiAgICAgICAgICAgICAgICAgICJsbmciIDogLTQ5LjI4ODIyMTUKICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgInNvdXRod2VzdCIgOiB7CiAgICAgICAgICAgICAgICAgICJsYXQiIDogLTI1LjU0MDIyMDMsCiAgICAgICAgICAgICAgICAgICJsbmciIDogLTQ5LjI4OTIzMTYKICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9LAogICAgICAgICAgICAibG9jYXRpb24iIDogewogICAgICAgICAgICAgICAibGF0IiA6IC0yNS41Mzg3ODQzLAogICAgICAgICAgICAgICAibG5nIiA6IC00OS4yODg3Mzc2CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJsb2NhdGlvbl90eXBlIiA6ICJBUFBST1hJTUFURSIsCiAgICAgICAgICAgICJ2aWV3cG9ydCIgOiB7CiAgICAgICAgICAgICAgICJub3J0aGVhc3QiIDogewogICAgICAgICAgICAgICAgICAibGF0IiA6IC0yNS41MzczMDc3LAogICAgICAgICAgICAgICAgICAibG5nIiA6IC00OS4yODczNzc1Njk3MDg1CiAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICJzb3V0aHdlc3QiIDogewogICAgICAgICAgICAgICAgICAibGF0IiA6IC0yNS41NDAyMjAzLAogICAgICAgICAgICAgICAgICAibG5nIiA6IC00OS4yOTAwNzU1MzAyOTE1CiAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQogICAgICAgICB9LAogICAgICAgICAicGxhY2VfaWQiIDogIkNoSUpzNlNVY1huODNKUVJ4d2lWSVI3SGlnZyIsCiAgICAgICAgICJ0eXBlcyIgOiBbICJwb3N0YWxfY29kZSIgXQogICAgICB9CiAgIF0sCiAgICJzdGF0dXMiIDogIk9LIgp9Cg==
+    http_version: 
+  recorded_at: Wed, 30 Oct 2019 13:07:10 GMT
+recorded_with: VCR 5.0.0
