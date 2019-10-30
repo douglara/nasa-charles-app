@@ -1,0 +1,40 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "<WHATSAPP_API_ENDPOINT>/messages"
+    body:
+      encoding: UTF-8
+      string: '{"to":"number","text":"teste"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <WHATSAPP_TOKEN>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - Express
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '2'
+      Etag:
+      - W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"
+      Date:
+      - Wed, 30 Oct 2019 05:29:42 GMT
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: "{}"
+    http_version: 
+  recorded_at: Wed, 30 Oct 2019 05:29:42 GMT
+recorded_with: VCR 5.0.0

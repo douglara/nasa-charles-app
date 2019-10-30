@@ -5,6 +5,8 @@ VCR.configure do |config|
   config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
   config.hook_into :webmock
   config.filter_sensitive_data('<AZURE_TOKEN>') { ENV['AZURE_TOKEN'] }
+  config.filter_sensitive_data('<WHATSAPP_API_ENDPOINT>') { ENV['WHATSAPP_API_ENDPOINT'] }
+  config.filter_sensitive_data('<WHATSAPP_TOKEN>') { ENV['WHATSAPP_TOKEN'] }
 end
 
 
