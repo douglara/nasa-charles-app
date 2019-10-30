@@ -12,22 +12,26 @@ RSpec.describe BasicBotService do
 
   describe '#sync_message' do
     context "not from me" do
-      it 'invalid zip code' do 
-        result = basic_bot.sync_message
-        expect(result[:result]).to be true
+      it 'invalid_cep' do
+        VCR.use_cassette("services/basic_bot/sync_message_not_from_me_invalid") do
+          result = basic_bot.sync_message
+          expect(result[:result]).to be true
+        end
       end 
-      it 'valid zip code' do
-        basic_bot = BasicBotService.new(create(:message, text: 'valid_zip'))
-        result = basic_bot.sync_message
-        expect(result[:result]).to be true
-        expect(result[:response]).to  include("cadastrado")
+      it 'valid_cep' do
+        VCR.use_cassette("services/basic_bot/sync_message_not_from_me_valid_cep") do
+          basic_bot = BasicBotService.new(create(:message, text: '81900500'))
+          result = basic_bot.sync_message
+          expect(result[:result]).to be true
+          expect(result[:response]).to  include("cadastrado")
+        end
       end 
     end
 
     context "from me" do
       it 'success' do 
         VCR.use_cassette("services/basic_bot/sync_message_from_me_success") do
-          result = BasicBotService.new(create(:message, text: 'teste', from_me: true, user_id: 'teste_number')).sync_message
+          result = BasicBotService.new(create(:message, text: 'teste', from_me: true, user_id: 'valid_number')).sync_message
           expect(result[:result]).to be true
         end
       end  

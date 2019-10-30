@@ -5,7 +5,11 @@ http_interactions:
     uri: "<WHATSAPP_API_ENDPOINT>/messages"
     body:
       encoding: UTF-8
-      string: '{"to":"valid_number","text":"teste"}'
+      string: "{\"to\":\"285-94-0930\",\"text\":\"Oi. Eu sou o Charles!\\n\\n\\nMinha
+        missão é ajudar você e sua família a viverem em segurança e saber o que fazer
+        numa situação de emergência!\U0001F609✅\\n\\n\\nEstou aprendendo a conversar
+        mas enquanto isso você pode cadastrar regiões para receber alertas de situações
+        de risco, basta digitar o CEP.\"}"
     headers:
       Content-Type:
       - application/json
@@ -29,20 +33,24 @@ http_interactions:
       Etag:
       - W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"
       Date:
-      - Wed, 30 Oct 2019 21:43:45 GMT
+      - Wed, 30 Oct 2019 21:40:19 GMT
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
       string: "{}"
     http_version: 
-  recorded_at: Wed, 30 Oct 2019 21:43:45 GMT
+  recorded_at: Wed, 30 Oct 2019 21:40:19 GMT
 - request:
     method: post
     uri: "<WHATSAPP_API_ENDPOINT>/messages"
     body:
       encoding: UTF-8
-      string: '{"to":"valid_number","text":"teste"}'
+      string: "{\"to\":\"285-94-0930\",\"text\":\"Oi. Eu sou o Charles!\\n\\n\\nMinha
+        missão é ajudar você e sua família a viverem em segurança e saber o que fazer
+        numa situação de emergência!\U0001F609✅\\n\\n\\nEstou aprendendo a conversar
+        mas enquanto isso você pode cadastrar regiões para receber alertas de situações
+        de risco, basta digitar o CEP.\"}"
     headers:
       Content-Type:
       - application/json
@@ -66,12 +74,12 @@ http_interactions:
       Etag:
       - W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"
       Date:
-      - Wed, 30 Oct 2019 21:43:45 GMT
+      - Wed, 30 Oct 2019 21:40:20 GMT
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
       string: "{}"
     http_version: 
-  recorded_at: Wed, 30 Oct 2019 21:43:45 GMT
+  recorded_at: Wed, 30 Oct 2019 21:40:20 GMT
 recorded_with: VCR 5.0.0
