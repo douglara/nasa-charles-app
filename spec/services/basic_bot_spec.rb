@@ -5,7 +5,9 @@ RSpec.describe BasicBotService do
 
   describe '#initialize' do 
     it 'success' do
-      expect(basic_bot).to be_a BasicBotService
+      VCR.use_cassette("services/basic_bot/initialize_success") do
+        expect(basic_bot).to be_a BasicBotService
+      end
     end
   end
 
@@ -48,6 +50,12 @@ RSpec.describe BasicBotService do
     it 'invalid address' do 
       VCR.use_cassette("services/basic_bot/get_region_by_cep_invalid_address") do
         result = basic_bot.get_region_by_cep('1')
+        expect(result[:result]).to be false
+      end    
+    end
+    it 'blank_address' do 
+      VCR.use_cassette("services/basic_bot/get_region_by_cep_invalid_address") do
+        result = basic_bot.get_region_by_cep('')
         expect(result[:result]).to be false
       end    
     end

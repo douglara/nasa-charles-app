@@ -7,7 +7,8 @@ class BasicBotService
   def sync_message
     if (!@message.text.blank?)
       if (!@message.from_me)
-        if (@message.text.count("a-zA-Z") > 0)
+        message_only_numbers = @message.text.tr('^0-9', '')
+        if ( message_only_numbers == '')
           return return_default_message
         else
           # Checa CEP
@@ -37,7 +38,8 @@ class BasicBotService
     return {result: true, response: default_text}
   end
 
-  def get_region_by_cep(cep)
+  def get_region_by_cep(cep='')
+    return {result: false, region: ''} if cep == ''
     query = { 'address': cep, 'key': ENV['GOOGLE_MAPS_KEY'] }
     result = HTTParty.get('https://maps.googleapis.com/maps/api/geocode/json', query: query)
     body_result = JSON.parse(result.body,:symbolize_names => true)
