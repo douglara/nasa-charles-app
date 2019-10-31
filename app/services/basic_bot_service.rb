@@ -8,7 +8,7 @@ class BasicBotService
     if (!@message.text.blank?)
       if (!@message.from_me)
         message_wiht_numbers = @message.text.tr('^0-9', '')
-        if (message_wiht_numbers != '' and message_wiht_numbers.count("a-zA-Z") > 0)
+        if (message_wiht_numbers == '' and message_wiht_numbers.count("a-zA-Z") > 0)
           return return_default_message
         else
           # Checa CEP
